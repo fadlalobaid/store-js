@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="./images/logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/details.css">i
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>SB3 Store</title>
+  </head>
+  <body>
+    <header>
+      <div class="top-header">
+        <div class="container">
+          <a href="#"><img src="./images/logo.png" alt="logo" /></a>
+          <form action="" class="search-box">
+            <div class="select-box">
+              <select name="category" id="category">
+                <option value="All category">All category</option>
+              </select>
+            </div>
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search For Product" />
+            <button type="submit">
+              <i
+                class="fa-solid fa-magnifying-glass"
+                style="color: #835500"></i>
+            </button>
+          </form>
+          <div class="header-icon">
+            <div class="icon">
+              <a href="#">
+                <i class="fa-regular fa-heart" style="color: #ffffff"></i>
+                <span class="count count_favourite">0</span>
+              </a>
+            </div>
+            <div class="icon">
+              <a href="#">
+                <i class="fa-solid fa-cart-shopping" style="color: #ffffff"></i>
+
+                <span class="count count_item">0</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="products">
+        <h2 class="section-title">PRODUCTS-DETAILS</h2>
+        <div class="container">
+
+           <div class="details" >
+              <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="${details.title}" width="200px" />
+              <div class="all">
+              <h3>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h3>
+              <hr>
+              <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit sit, aperiam neque optio magnam necessitatibus omnis beatae magni veritatis at odio, eaque officia impedit reiciendis molestiae veniam cumque quisquam ex.</h5>
+              <div class="details-price">
+              <div>
+                
+                <p>215$:السعر</p> 
+              </div>
+                <p>Category:name</p>
+              </div>
+                 
+              <hr />
+              <div class="details-info">
+              
+               <i class="fa-regular fa-heart" style="color: #835500"></i>
+               <i class="fa-solid fa-cart-shopping" style="color: #835500"></i>
+              </div>
+
+              <button class="details-btn">رجوع<i class="fa-solid fa-square-up-right" style="color: #ffffff;"></i></button>
+              </div>
+           </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="end-footer">
+        <p>هذا الموقع محمي بموجب حقوق النشر © <span id="data-year"></span></p>
+      </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+    <script src="./js/details.js"></script>
+  </body>
+</html>

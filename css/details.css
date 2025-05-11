@@ -1,0 +1,79 @@
+:root {
+    --main-color: #e67e22;
+    --bg-color: #f4f6f7;
+    --header-color: #2d2d2d;
+    --back-color: #c4c2c2e5;
+}
+.details {
+    border: 1px solid var(--main-color);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.details .all h3 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    margin: 5px;
+    color: var(--header-color);
+}
+.details .all h5 {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 20px;
+    color: var(--header-color);
+}
+.details .all .details-price {
+    margin: 20px 0px 0px 0;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    font-size: 20px;
+    font-weight: 800;
+}
+.details .all .details-price div:first-child {
+    color: rgb(0, 125, 71);
+}
+.details .all .details-info {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.details .all .details-info i {
+    font-size: 25px;
+}
+.details .all button {
+    width: 100%;
+    background-color: var(--main-color);
+    height: 40px;
+    margin-top: 50px;
+    margin-left: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+.details{
+    flex-direction: column;
+}
+    .details .all h3 {
+        font-size: 10px;
+        font-weight: 700;
+    }
+    .details .all h5 {
+        font-size: 10px;
+    }
+    .details .all .details-price {
+        font-size: 10px;
+        font-weight: 800;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .details .all .details-info i {
+        font-size: 15px;
+    }
+}
