@@ -1,0 +1,41 @@
+:root {
+    --main-color: #e67e22;
+    --bg-color: #f4f6f7;
+    --header-color: #2d2d2d;
+    --back-color: #c4c2c2e5;
+}
+.favorites {
+    background-color: white;
+    border: 1px solid var(--main-color);
+    padding: 20px;
+    border-radius: 20px;
+  display: flex;
+    justify-content:center;
+    align-items: center;
+    margin: 20px 0;
+}
+.favorites img {
+    width: 50%;
+    height: 200px;
+    object-fit: scale-down;
+}
+hr {
+    border: 1px solid var(--main-color);
+}
+
+.favorites h3{
+
+}
+
+@media (max-width: 768px) {
+    .favorites {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    
+
+    footer p {
+        font-size: 10px;
+    }
+}

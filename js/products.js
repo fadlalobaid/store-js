@@ -11,6 +11,7 @@ async function getProduct() {
       jsonResponse.forEach((product) => {
         productListDiv.innerHTML += `
            <div class="product" >
+            
               <img src="${product.image}" alt="${product.title}" />
               <h3>${product.title}</h3>
               <div class="product-price">
@@ -38,3 +39,5 @@ async function getProduct() {
 document.addEventListener("DOMContentLoaded", (e) => {
   getProduct();
 });
+
+
