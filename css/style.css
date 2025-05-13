@@ -140,11 +140,9 @@ header .top-header .header-icon .icon .count {
 .products .all-products .product {
     background-color: #ffffff;
     padding: 5px 10px;
-
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 0 5px #000;
-    position: relative;
     transition: 0.3s ease-in-out;
     overflow: hidden;
     z-index: 1;
@@ -155,21 +153,22 @@ header .top-header .header-icon .icon .count {
 }
 .products .all-products .product img {
     width: 100px;
-    height: 40%;
+
 }
 .products .all-products .product h3 {
     color: var(--main-back);
     margin: 5px 0;
     font-size: 10px;
+    height: 20px;
 }
 .products .all-products .product p {
-    margin: 0px 5px 5px 5px;
+    margin: 0px 5px 0px 5px;
 }
 
 .products .all-products .product .product-price {
     display: flex;
     justify-content: space-around;
-    margin: 5px 15px 10px 15px;
+    margin: 5px 15px 5px 15px;
 }
 
 .product-price div :first-child {
@@ -197,14 +196,12 @@ header .top-header .header-icon .icon .count {
     background-color: var(--main-color);
     color: var(--bg-color);
     width: 100%;
-    font-size: 18px;
+    font-size: 15px;
     padding: 10px;
       border-radius: 10px;
     border: 0;
     transition: 0.3s ease-in-out;
-    position: absolute;
-    bottom: 10px;
-    left: 0px;
+
 }
 
 @media (max-width: 360px) {
