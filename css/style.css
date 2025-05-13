@@ -201,6 +201,7 @@ header .top-header .header-icon .icon .count {
     padding: 10px;
     border-radius: 10px;font-weight: 700;
     border: 0;
+    margin: 2px;
     transition: 0.3s ease-in-out;
 }
 .products .all-products .product button:hover {

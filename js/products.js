@@ -23,8 +23,8 @@ async function getProduct() {
               <hr />
               <div class="product-info">
               
-               <i class="fa-regular fa-heart" style="color: #835500"></i>
-               <i class="fa-solid fa-cart-shopping" style="color: #835500"></i>
+            <button id="add-to-fav">  <i class="fa-regular fa-heart" style="color: #835500"></i></button> 
+           <button>  <i class="fa-solid fa-cart-shopping" style="color: #835500"></i></button>  
 
 
              
