@@ -5,11 +5,20 @@
     --back-color: #c4c2c2e5;
 }
 .details {
+    background-color: white;
     border: 1px solid var(--main-color);
     padding: 20px;
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
+}
+.details img {
+    width: 100%;
+    height: 300px;
+    object-fit: scale-down;
+}
+hr {
+    border: 1px solid var(--main-color);
 }
 .details .all h3 {
     text-align: center;
@@ -21,7 +30,7 @@
 .details .all h5 {
     text-align: center;
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 300;
     margin: 20px;
     color: var(--header-color);
 }
@@ -33,9 +42,14 @@
     font-size: 20px;
     font-weight: 800;
 }
-.details .all .details-price div:first-child {
-    color: rgb(0, 125, 71);
+.details .all .details-price #price {
+    color: green;
 }
+
+.details .all .details-price #name-category {
+    color: var(--main-color);
+}
+
 .details .all .details-info {
     margin-top: 20px;
     display: flex;
@@ -44,6 +58,7 @@
 
 .details .all .details-info i {
     font-size: 25px;
+
 }
 .details .all button {
     width: 100%;
@@ -52,13 +67,26 @@
     margin-top: 50px;
     margin-left: 10px;
     border-radius: 10px;
+    font-weight: 700;
+
     font-size: 20px;
+    transition: 0.3s ease-in-out;
+}
+.details .all button i{
+    margin-left: 5px;
+
+}
+.details .all button:hover {
+    background-color: #2d2d2d;
+    color: var(--main-color);
 }
 
 @media (max-width: 768px) {
-.details{
-    flex-direction: column;
-}
+    .details {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .details .all h3 {
         font-size: 10px;
         font-weight: 700;
@@ -75,5 +103,9 @@
 
     .details .all .details-info i {
         font-size: 15px;
+    }
+
+    footer p {
+        font-size: 10px;
     }
 }

@@ -15,11 +15,10 @@ async function getProduct() {
               <h3>${product.title}</h3>
               <div class="product-price">
                 <div> 
-                <p class="red-price">${product.price}</p>
+                <p class="red-price">$${product.price}  <span>:السعر</span> </p>
                 </div> 
-                 <p>:السعر</p> 
               </div>
-                 <p>Category:${product.category}</p>
+                 <p class="category">Category:${product.category}</p>
               <hr />
               <div class="product-info">
               

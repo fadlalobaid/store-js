@@ -11,7 +11,8 @@
       integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/details.css">i
+    <link rel="stylesheet" href="./css/details.css" />
+    i
     <link rel="stylesheet" href="css/style.css" />
 
     <title>SB3 Store</title>
@@ -60,31 +61,36 @@
       <section class="products">
         <h2 class="section-title">PRODUCTS-DETAILS</h2>
         <div class="container">
+          <div class="details">
+            <img
+              src=""
+              alt=""
+              />
+            <div class="all">
+              <h3></h3>
+              <hr />
+              <h5>
 
-           <div class="details" >
-              <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="${details.title}" width="200px" />
-              <div class="all">
-              <h3>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h3>
-              <hr>
-              <h5>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit sit, aperiam neque optio magnam necessitatibus omnis beatae magni veritatis at odio, eaque officia impedit reiciendis molestiae veniam cumque quisquam ex.</h5>
+              </h5>
               <div class="details-price">
-              <div>
-                
-                <p>215$:السعر</p> 
+                <p ><span id="price"></span>:السعر</p>
+
+                <p>Category: <span id="name-category"></span></p>
               </div>
-                <p>Category:name</p>
-              </div>
-                 
+
               <hr />
               <div class="details-info">
-              
-               <i class="fa-regular fa-heart" style="color: #835500"></i>
-               <i class="fa-solid fa-cart-shopping" style="color: #835500"></i>
+                <i class="fa-regular fa-heart" style="color: #835500"></i>
+                <i class="fa-solid fa-cart-shopping" style="color: #835500"></i>
               </div>
 
-              <button class="details-btn">رجوع<i class="fa-solid fa-square-up-right" style="color: #ffffff;"></i></button>
-              </div>
-           </div>
+              <button class="details-btn" onclick="goToHomePage()">
+                رجوع<i
+                  class="fa-solid fa-square-up-right"
+                  style="color: #ffffff"></i>
+              </button>
+            </div>
+          </div>
         </div>
       </section>
     </main>
