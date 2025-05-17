@@ -13,11 +13,12 @@ async function getProductDetails(id) {
 let countFav=document.querySelector("#count-fav");
 countFav.innerText = favArr.length;
 
+
     const response = await fetch("https://fakestoreapi.com/products");
   if (response.ok) {
     let jsonResponse = await response.json();
     jsonResponse=jsonResponse.filter((el)=>(favArr.includes(el.id.toString())));
-    console.log(favArr.includes(1));
+
     
     if (jsonResponse != null && jsonResponse.length > 0) {
       const productListDiv = document.querySelector(".row");
@@ -44,6 +45,6 @@ countFav.innerText = favArr.length;
 document.addEventListener("DOMContentLoaded", (e) => {
   const pageUrl = new URL(location.href);
   const id = pageUrl.searchParams.get("id");
-
+  
   getProductDetails(id);
 });

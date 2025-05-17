@@ -17,6 +17,30 @@
     <title>SB3 Store</title>
   </head>
   <body>
+    <div class="cart">
+      <div class="top_cart">
+        <h3>Cart Items : <span class="Count_item_cart">0</span></h3>
+        <span onclick="open_close_cart()" class="close_cart"
+          ><i class="fa-solid fa-xmark" style="color: #e67e22"></i
+        ></span>
+      </div>
+
+      <div class="items_in_cart" id="cart_items"></div>
+
+      <div class="bottom_cart">
+        <div class="total">
+          <p>subtotal</p>
+          <p class="price_cart_toral">$0</p>
+        </div>
+
+        <div class="button_cart">
+          <a href="#" class="btn_cart btn">Checkout</a>
+          <span onclick="open_close_cart()" class="btn_cart trans_bg btn"
+            >Shop More</span
+          >
+        </div>
+      </div>
+    </div>
     <header>
       <div class="top-header">
         <div class="container">
@@ -46,15 +70,15 @@
               </a>
             </div>
             <div class="icon">
-              <a href="#">
+              <a href="#" onclick="open_close_cart()">
                 <i class="fa-solid fa-cart-shopping" style="color: #ffffff"></i>
-
-                <span class="count count_item">0</span>
+                <span class="count count_item count_item_header">0</span>
               </a>
             </div>
           </div>
         </div>
       </div>
+      
     </header>
     <main>
       <section class="products">
@@ -71,10 +95,9 @@
     </footer>
 
     <script src="./lib/cookies.js"></script>
-    <script src="./js/script.js"></script>
-    
+
     <script src="./js/favorites.js"></script>
-    
+
     <script src="./js/products.js"></script>
   </body>
 </html>
