@@ -12,39 +12,16 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/login.css" />
 
     <title>SB3 Store</title>
   </head>
   <body>
-    <div class="cart">
-      <div class="top_cart">
-        <h3>Cart Items : <span class="Count_item_cart">0</span></h3>
-        <span onclick="open_close_cart()" class="close_cart"
-          ><i class="fa-solid fa-xmark" style="color: #e67e22"></i
-        ></span>
-      </div>
-
-      <div class="items_in_cart" id="cart_items"></div>
-
-      <div class="bottom_cart">
-        <div class="total">
-          <p>subtotal</p>
-          <p class="price_cart_toral">$0</p>
-        </div>
-
-        <div class="button_cart">
-          <a href="#" class="btn_cart btn">Checkout</a>
-          <span onclick="open_close_cart()" class="btn_cart trans_bg btn"
-            >Shop More</span
-          >
-        </div>
-      </div>
-    </div>
     <header>
       <div class="top-header">
         <div class="container">
-          <a href="./login.html"><img src="./images/logo.png" alt="logo" /></a>
+          <a href="#"><img src="./images/logo.png" alt="logo" /></a>
           <form action="" class="search-box">
             <div class="select-box">
               <select name="category" id="category">
@@ -80,34 +57,21 @@
           </div>
         </div>
       </div>
-      <div class="bottom_header">
-        <div class="container">
-          <nav class="nav">
-            <span onclick="open_Menu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
-
-            <ul class="nav_links">
-              <li class="active"><a href="/index.html">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="./favorites.html">favorites</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </nav>
-
-          <div class="login_signup btns">
-            <a href="./login.html" class="btn">Login <i class="fa-solid fa-right-to-bracket"></i ></a>
-            <a href="#" class="btn"
-              >Sign UP <i class="fa-solid fa-user-plus"></i
-            ></a>
-          </div>
-        </div>
-      </div>
     </header>
     <main>
-      <section class="products">
-        <h2 class="section-title">PRODUCTS</h2>
+      <section class="products" id="login-form">
+        <h2 class="section-title">LOGIN</h2>
         <div class="container">
-          <div class="all-products"></div>
+          <div class="cart-form">
+            <p id="login-status"></p>
+            <form action="./index.html">
+              <label for="usarname">Username</label>
+              <input type="text" name="username" id="username" />
+              <label for="password">password</label>
+              <input type="password" name="password" id="password" />
+              <button type="submit">LOGIN</button>
+            </form>
+          </div>
         </div>
       </section>
     </main>
@@ -116,11 +80,6 @@
         <p>هذا الموقع محمي بموجب حقوق النشر © <span id="data-year"></span></p>
       </div>
     </footer>
-    <script src="./js/favorites.js"></script>
-    <script src="./lib/cookies.js"></script>
-    <script src="./js/products.js"></script>
-    <script src="./js/cart.js"></script>
-
-    <script src="./js/details.js"></script>
+    <script src="./js/login.js"></script>
   </body>
 </html>

@@ -1,138 +1,11 @@
+const CART_COOKIE_NAME = "cart";
+
 const today = new Date();
 const year = today.getFullYear();
-
 const dataYear = document.getElementById("data-year");
+
 if (dataYear) {
   dataYear.innerText = year;
-}
-
-const cartBox = document.querySelector(".cart");
-
-function open_close_cart() {
-  cartBox.classList.toggle("active");
-}
-
-// تحديث عدد المنتجات في الأيقونة
-function updateCartCount() {
-  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-  const countSpan = document.getElementById("cart-count");
-  if (countSpan) {
-    countSpan.innerText = cartItems.reduce(
-      (acc, item) => acc + item.quantity,
-      0
-    );
-  }
-}
-
-// إضافة منتج إلى السلة
-function addToCart(product) {
-  let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-
-  const exists = cartItems.find((item) => item.id === product.id);
-
-  if (!exists) {
-    product.quantity = 1; // تعيين الكمية أول مرة
-    cartItems.push(product);
-  } else {
-    exists.quantity += 1; // زيادة الكمية إذا كان موجود
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cartItems));
-  console.log("تمت إضافة المنتج إلى السلة:", product);
-  updateCartCount();
-  updateCart();
-}
-
-function updateCart() {
-  const cartItemsContainer = document.getElementById("cart_items");
-  if (!cartItemsContainer) return;
-
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let total_Price = 0;
-  let total_count = 0;
-
-  cartItemsContainer.innerHTML = ""; // مسح القديم
-
-  cart.forEach((item, index) => {
-    let total_Price_item = item.price * item.quantity;
-    total_Price += total_Price_item;
-    total_count += item.quantity;
-
-    cartItemsContainer.innerHTML += `
-      <div class="item_cart">
-        <img src="${item.image}" alt="">
-        <div class="content">
-          <h4>${item.title}</h4>
-          <p class="price_cart">$${total_Price_item.toFixed(2)}</p>
-          <div class="quantity_control">
-            <button class="decrease_quantity" data-index="${index}">-</button>
-            <span class="quantity">${item.quantity}</span>
-            <button class="increase_quantity" data-index="${index}">+</button>
-          </div>
-        </div>
-        <button class="delete_item" data-index="${index}">
-          <i class="fa-solid fa-trash-can"></i>
-        </button>
-      </div>
-    `;
-  });
-
-  const price_cart_total = document.querySelector(".price_cart_toral");
-
-  const count_item_cart = document.querySelector(".Count_item_cart");
-
-  const count_item_header = document.querySelector(".count_item_header");
-
-  price_cart_total.innerHTML = `$ ${total_Price}`;
-
-  count_item_cart.innerHTML = total_count;
-
-  count_item_header.innerHTML = total_count;
-
-  // الأحداث الخاصة بالأزرار داخل السلة
-  setTimeout(() => {
-    document.querySelectorAll(".increase_quantity").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        const index = e.currentTarget.getAttribute("data-index");
-        changeQuantity(index, 1);
-      });
-    });
-
-    document.querySelectorAll(".decrease_quantity").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        const index = e.currentTarget.getAttribute("data-index");
-        changeQuantity(index, -1);
-      });
-    });
-
-    document.querySelectorAll(".delete_item").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        const index = e.currentTarget.getAttribute("data-index");
-        deleteItem(index);
-      });
-    });
-  }, 0);
-}
-
-// تعديل الكمية
-function changeQuantity(index, delta) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  if (cart[index]) {
-    cart[index].quantity += delta;
-    if (cart[index].quantity < 1) cart[index].quantity = 1;
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCart();
-    updateCartCount();
-  }
-}
-
-// حذف منتج
-function deleteItem(index) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.splice(index, 1);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCart();
-  updateCartCount();
 }
 
 async function getProduct() {
@@ -156,8 +29,9 @@ async function getProduct() {
             <p class="category">Category: ${product.category}</p>
             <hr />
             <div class="product-info">
-                 <button id="add-to-fav">  <i class="fa-regular fa-heart" style="color: #835500"></i></button> 
-
+              <button class="add-to-fav" data-id="${product.id}">
+                <i class="fa-regular fa-heart bttn" style="color: #835500"></i>
+              </button>
               <button class="add-to-cartt" data-id="${product.id}">
                 <i class="fa-solid fa-cart-shopping" style="color: #835500"></i>
               </button>  
@@ -169,14 +43,22 @@ async function getProduct() {
         `;
       });
 
-      // ربط أزرار الإضافة
-      const addToCartBtns = document.querySelectorAll(".add-to-cartt");
-      addToCartBtns.forEach((button) => {
-        button.addEventListener("click", (e) => {
-          const productId = Number(e.currentTarget.getAttribute("data-id"));
-          const selectedProduct = jsonResponse.find((p) => p.id === productId);
-          if (selectedProduct) {
-            addToCart(selectedProduct);
+      // ربط زر المفضلة
+      document.querySelectorAll(".add-to-fav").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const id = e.currentTarget.getAttribute("data-id");
+          const icon = e.currentTarget.querySelector("i");
+          toggleFavorite(id, icon);
+        });
+      });
+
+      // ربط زر السلة
+      document.querySelectorAll(".add-to-cartt").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const id = e.currentTarget.getAttribute("data-id");
+          const product = jsonResponse.find((p) => p.id == id);
+          if (product) {
+            addToCart(product);
           }
         });
       });
@@ -184,8 +66,74 @@ async function getProduct() {
   }
 }
 
+function toggleFavorite(id, icon) {
+  let favs = getCookie(FAV_COOKIE_NAME);
+  let favArr = favs ? JSON.parse(favs) : [];
+   
+  if (favArr.includes(id)) {
+    favArr = favArr.filter((item) => item !== id);
+    icon.classList.remove("fa-solid");
+    icon.classList.add("fa-regular");
+  } else {
+    favArr.push(id);
+    icon.classList.remove("fa-regular");
+    icon.classList.add("fa-solid");
+  }
+
+  setCookie(FAV_COOKIE_NAME, JSON.stringify(favArr), 7);
+}
+
+function addToCart(product) {
+  let cart = getCookie(CART_COOKIE_NAME);
+  let cartArr = cart ? JSON.parse(cart) : [];
+
+  const exists = cartArr.find((item) => item.id === product.id);
+  if (!exists) {
+    cartArr.push(product);
+    setCookie(CART_COOKIE_NAME, JSON.stringify(cartArr), 7);
+    updateCartCount();
+  }
+}
+
+function updateCartCount() {
+  const cart = getCookie(CART_COOKIE_NAME);
+  const cartArr = cart ? JSON.parse(cart) : [];
+  const count = cartArr.length;
+
+  const cartCounter = document.getElementById("count-cart");
+  if (cartCounter) {
+    cartCounter.innerText = count;
+  }
+}
+
+
+
+function goToDetails(id) {
+  location.href = `/details.html?id=${id}`;
+}
+
+
+function setCookie(name, value, days) {
+  const date = new Date();
+  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+  document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
+}
+
+function getCookie(name) {
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const cookies = decodedCookie.split(";");
+
+  for (let c of cookies) {
+    while (c.charAt(0) === " ") c = c.substring(1);
+    if (c.indexOf(name + "=") === 0) {
+      return c.substring(name.length + 1);
+    }
+  }
+
+  return null;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   getProduct();
   updateCartCount();
-  updateCart();
 });

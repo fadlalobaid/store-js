@@ -46,10 +46,7 @@
           <div class="header-icon">
             <div class="icon">
               <a href="./favorites.html">
-                <i
-                  class="fa-regular fa-heart"
-                
-                  style="color: #ffffff"></i>
+                <i class="fa-regular fa-heart" style="color: #ffffff"></i>
                 <span class="count count_favourite" id="count-fav">0</span>
               </a>
             </div>
@@ -57,9 +54,30 @@
               <a href="#">
                 <i class="fa-solid fa-cart-shopping" style="color: #ffffff"></i>
 
-                <span class="count count_item">0</span>
+                <span class="count count_item" id="cart-count">0</span>
               </a>
             </div>
+          </div>
+        </div>
+      </div>
+         <div class="bottom_header">
+        <div class="container">
+          <nav class="nav">
+            <span onclick="open_Menu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
+            <ul class="nav_links">
+              <li class="active"><a href="/index.html">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="./favorites.html">favorites</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="login_signup btns">
+            <a href="./login.html" class="btn">Login <i class="fa-solid fa-right-to-bracket"></i ></a>
+            <a href="#" class="btn"
+              >Sign UP <i class="fa-solid fa-user-plus"></i
+            ></a>
           </div>
         </div>
       </div>
@@ -70,7 +88,13 @@
         <div class="container">
           <div class="favorites">
             <div class="container text-center">
-              <div class="row"></div>
+              <div class="row">
+                <div class="col">
+
+                </div>
+             <button id="clear-fav" class="butn">مسح جميع المفضلات    <i class="fa-solid fa-trash-can"></i></button>
+              </div>
+             
             </div>
           </div>
         </div>
@@ -83,6 +107,8 @@
     </footer>
 
     <script src="./lib/cookies.js"></script>
+    
+    
     <script src="./js/favorites.js"></script>
 
 

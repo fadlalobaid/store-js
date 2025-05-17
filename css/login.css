@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Orbitron:wght@400..900&family=Reem+Kufi:wght@400..700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&family=Reem+Kufi:wght@400..700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+
+:root {
+    --main-color: #e67e22;
+    --bg-color: #f4f6f7;
+    --header-color: #2d2d2d;
+    --back-color: #c4c2c2e5;
+}
+.cart-form {
+    border: 1px solid var(--main-color);
+    border-radius: 10px;
+    padding: 30px;
+    height: 300px;
+    background-color: var(--bg-color);
+}
+.cart-form label{
+       font-family: "Inter", sans-serif;
+       font-weight: 500;
+       color: #e67e22;
+}
+.cart-form input{
+    border: 1px solid #2d2d2d;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 15px 0;
+    font-size: 15px;
+    background-color: #eee;
+}
+.cart-form input:focus{
+      border: 1px solid var(--main-color);
+}
+.cart-form button{
+    background-color: var(--main-color);
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 25px;
+    color: var(--bg-color);
+        font-family: "Inter", sans-serif;
+}
