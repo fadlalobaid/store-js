@@ -80,7 +80,7 @@ document.getElementById("clear-fav").addEventListener("click", () => {
     productListDiv.innerHTML = "<p>لا توجد منتجات في المفضلة.</p>";
   }
 
-  console.log("تم مسح جميع المفضلات.");
+ 
 
    updateCartCount();
 });
