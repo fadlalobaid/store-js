@@ -24,7 +24,7 @@ async function getProduct() {
 
       jsonResponse.forEach((product) => {
         productListDiv.innerHTML += `
-          <div class="product" onclick="goToDetails(${product.id})">
+          <div class="product">
             <img src="${product.image}" alt="${product.title}" />
             <h3>${product.title}</h3>
             <div class="product-price">

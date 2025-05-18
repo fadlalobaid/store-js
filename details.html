@@ -19,10 +19,35 @@
     <link rel="stylesheet" href="./css/details.css" />
 
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/cart.css" />
 
     <title>SB3 Store</title>
   </head>
   <body>
+     <div class="cart">
+      <div class="top_cart">
+        <h3>Cart Items : <span class="Count_item_cart">0</span></h3>
+        <span onclick="open_close_cart()" class="close_cart"
+          ><i class="fa-solid fa-xmark" style="color: #e67e22"></i
+        ></span>
+      </div>
+
+      <div class="items_in_cart" id="cart_items"></div>
+
+      <div class="bottom_cart">
+        <div class="total">
+          <p>subtotal</p>
+          <p class="price_cart_toral">$0</p>
+        </div>
+
+        <div class="button_cart">
+          <a href="#" class="btn_cart btn">Checkout</a>
+          <span onclick="open_close_cart()" class="btn_cart trans_bg btn"
+            >Shop More</span
+          >
+        </div>
+      </div>
+    </div>
     <header>
       <div class="top-header">
         <div class="container">
@@ -140,8 +165,8 @@
       integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
       crossorigin="anonymous"></script>
     <script src="./lib/cookies.js"></script>
-
-    <script src="./js/details.js"></script>
     <script src="./js/products.js"></script>
+    <script src="./js/details.js"></script>
+    <script src="./js/cart.js"></script>
   </body>
 </html>

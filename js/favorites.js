@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const pageUrl = new URL(location.href);
+  const id = pageUrl.searchParams.get("id");
+
+  getProductDetails(id);
+});
 async function getProductDetails(id) {
   const favs = getCookie(FAV_COOKIE_NAME);
   let favArr = [];
@@ -10,16 +16,19 @@ async function getProductDetails(id) {
     console.error("Error parsing favorites cookie:", error);
   }
 
-
-  function updateCartCount() {
-    const cart = localStorage.getItem("cart");
-    const cartArr = cart ? JSON.parse(cart) : [];
-    const cartCount = document.getElementById("cart-count");
-    if (cartCount) {
-      cartCount.innerText = cartArr.length;
+  function updateFavCount() {
+    try {
+      const favs = getCookie(FAV_COOKIE_NAME);
+      const favArr = favs ? JSON.parse(favs) : [];
+      const favCount = document.getElementById("count-fav");
+      if (favCount) {
+        favCount.innerText = favArr.length;
+      }
+    } catch (error) {
+      console.error("خطأ في تحديث عداد المفضلة:", error);
     }
   }
-
+  updateFavCount();
 
   try {
     const response = await fetch("https://fakestoreapi.com/products");
@@ -28,7 +37,6 @@ async function getProductDetails(id) {
 
     let products = await response.json();
 
-    // تصفية المنتجات بناءً على الـ ID المحفوظ في الكوكيز
     const filteredProducts = products.filter((el) =>
       favArr.includes(el.id.toString())
     );
@@ -60,13 +68,7 @@ async function getProductDetails(id) {
 }
 
 // تنفيذ عند تحميل الصفحة
-document.addEventListener("DOMContentLoaded", () => {
 
-  const pageUrl = new URL(location.href);
-  const id = pageUrl.searchParams.get("id");
-
-  getProductDetails(id);
-});
 document.getElementById("clear-fav").addEventListener("click", () => {
   setCookie(FAV_COOKIE_NAME, "", -1);
 
@@ -79,10 +81,6 @@ document.getElementById("clear-fav").addEventListener("click", () => {
   if (productListDiv) {
     productListDiv.innerHTML = "<p>لا توجد منتجات في المفضلة.</p>";
   }
-
- 
-
-   updateCartCount();
 });
 
 function setCookie(name, value, days) {

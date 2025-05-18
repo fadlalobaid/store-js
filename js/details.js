@@ -139,3 +139,17 @@ function setupAddToCartBtn(id, product) {
     }
   });
 }
+   function updateFavCount() {
+    try {
+      const favs = getCookie(FAV_COOKIE_NAME);
+      const favArr = favs ? JSON.parse(favs) : [];
+      const favCount = document.getElementById("count-fav");
+      if (favCount) {
+        favCount.innerText = favArr.length;
+      }
+    } catch (error) {
+      console.error("خطأ في تحديث عداد المفضلة:", error);
+    }
+  }
+  updateFavCount();
+
