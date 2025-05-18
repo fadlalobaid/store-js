@@ -69,7 +69,7 @@ async function getProduct() {
 function toggleFavorite(id, icon) {
   let favs = getCookie(FAV_COOKIE_NAME);
   let favArr = favs ? JSON.parse(favs) : [];
-   
+
   if (favArr.includes(id)) {
     favArr = favArr.filter((item) => item !== id);
     icon.classList.remove("fa-solid");
@@ -106,12 +106,10 @@ function updateCartCount() {
   }
 }
 
-
-
 function goToDetails(id) {
-  location.href = `details.html?id=${id}`;
+  const basePath = window.location.pathname.split("/")[1];
+  location.href = `/${basePath}/details.html?id=${id}`;
 }
-
 
 function setCookie(name, value, days) {
   const date = new Date();
