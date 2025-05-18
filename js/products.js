@@ -15,12 +15,16 @@ async function getProduct() {
     const jsonResponse = await response.json();
 
     if (jsonResponse && jsonResponse.length > 0) {
-      const productListDiv = document.querySelector(".all-products");
+      let productListDiv = document.querySelector(".all-products");
+      if (!productListDiv) {
+        console.error("لم يتم العثور على العنصر .all-products في الصفحة.");
+        return;
+      }
       productListDiv.innerHTML = "";
 
       jsonResponse.forEach((product) => {
         productListDiv.innerHTML += `
-          <div class="product">
+          <div class="product" onclick="goToDetails(${product.id})">
             <img src="${product.image}" alt="${product.title}" />
             <h3>${product.title}</h3>
             <div class="product-price">
@@ -69,7 +73,7 @@ async function getProduct() {
 function toggleFavorite(id, icon) {
   let favs = getCookie(FAV_COOKIE_NAME);
   let favArr = favs ? JSON.parse(favs) : [];
-   
+
   if (favArr.includes(id)) {
     favArr = favArr.filter((item) => item !== id);
     icon.classList.remove("fa-solid");
@@ -106,12 +110,9 @@ function updateCartCount() {
   }
 }
 
-
-
 function goToDetails(id) {
-  location.href = `../details.html?id=${id}`;
+  location.href = `details.html?id=${id}`;
 }
-
 
 function setCookie(name, value, days) {
   const date = new Date();

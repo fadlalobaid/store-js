@@ -1,3 +1,22 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
+
+  if (id) {
+    getProductDetails(id);
+    setupFavoriteBtnStatus(id);
+    setupFavoriteBtn(id);
+  }else {
+    const alert = document.getElementById("alert");
+    alert.classList.add("alert");
+    alert.classList.add("alert-danger");
+    alert.innerHTML = `
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      لم يتم العثور على المنتج
+    `;
+  }
+});
+
 async function getProductDetails(id) {
   const response = await fetch(`https://fakestoreapi.com/products/${id}`);
 
@@ -28,16 +47,6 @@ async function getProductDetails(id) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const pageUrl = new URL(location.href);
-  const id = pageUrl.searchParams.get("id");
-
-  if (id) {
-    getProductDetails(id);
-    setupFavoriteBtnStatus(id);
-    setupFavoriteBtn(id);
-  }
-});
 
 function goToHomePage() {
   location.href = "../index.html";
@@ -89,7 +98,7 @@ function setupFavoriteBtn(id) {
 
 function setupAddToCartBtn(id, product) {
   const cartBtn = document.getElementById("add-to-cart");
-  console.log(cartBtn);
+
 
   if (!cartBtn) return;
 
