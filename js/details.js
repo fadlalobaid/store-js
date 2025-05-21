@@ -49,7 +49,7 @@ async function getProductDetails(id) {
 
 
 function goToHomePage() {
-  location.href = "../index.html";
+  location.href = "index.html";
 }
 
 function setupFavoriteBtnStatus(id) {
