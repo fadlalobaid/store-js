@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     getProductDetails(id);
     setupFavoriteBtnStatus(id);
     setupFavoriteBtn(id);
-  }else {
+  } else {
     const alert = document.getElementById("alert");
     alert.classList.add("alert");
     alert.classList.add("alert-danger");
@@ -47,9 +47,12 @@ async function getProductDetails(id) {
   }
 }
 
-
 function goToHomePage() {
-  location.href = `${window.location.origin}/index.html`;
+  const basePath = window.location.pathname.substring(
+    0,
+    window.location.pathname.lastIndexOf("/") + 1
+  );
+  window.location.href = `${basePath}index.html`;
 }
 
 function setupFavoriteBtnStatus(id) {
@@ -99,7 +102,6 @@ function setupFavoriteBtn(id) {
 function setupAddToCartBtn(id, product) {
   const cartBtn = document.getElementById("add-to-cart");
 
-
   if (!cartBtn) return;
 
   cartBtn.addEventListener("click", () => {
@@ -120,7 +122,7 @@ function setupAddToCartBtn(id, product) {
       const alert = document.getElementById("alert");
       alert.classList.add("alert");
       alert.classList.add("alert-success");
- 
+
       alert.innerHTML = `  
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>  
       تم اضافة المنتج الى السلة بنجاح  
@@ -130,7 +132,7 @@ function setupAddToCartBtn(id, product) {
       const alert = document.getElementById("alert");
       alert.classList.add("alert");
       alert.classList.add("alert-info");
-    
+
       alert.innerHTML = `
        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       المنتج مضاف مسبقاً             
@@ -139,17 +141,16 @@ function setupAddToCartBtn(id, product) {
     }
   });
 }
-   function updateFavCount() {
-    try {
-      const favs = getCookie(FAV_COOKIE_NAME);
-      const favArr = favs ? JSON.parse(favs) : [];
-      const favCount = document.getElementById("count-fav");
-      if (favCount) {
-        favCount.innerText = favArr.length;
-      }
-    } catch (error) {
-      console.error("خطأ في تحديث عداد المفضلة:", error);
+function updateFavCount() {
+  try {
+    const favs = getCookie(FAV_COOKIE_NAME);
+    const favArr = favs ? JSON.parse(favs) : [];
+    const favCount = document.getElementById("count-fav");
+    if (favCount) {
+      favCount.innerText = favArr.length;
     }
+  } catch (error) {
+    console.error("خطأ في تحديث عداد المفضلة:", error);
   }
-  updateFavCount();
-
+}
+updateFavCount();
