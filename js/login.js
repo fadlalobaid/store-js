@@ -27,7 +27,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
       status.textContent = "تم تسجيل الدخول بنجاح!";
       status.style.color = "green";
 
-      location.href = `index.html`;
+      location.href = `${window.location.origin}/index.html`;
     } else {
       status.textContent = "فشل في تسجيل الدخول. تحقق من البيانات.";
       status.style.color = "red";
