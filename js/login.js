@@ -24,10 +24,11 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
       localStorage.setItem("auth_token", token);
       localStorage.setItem("username", username);
 
-      status.textContent = "تم تسجيل الدخول بنجاح!";
+      status.innerHTML = `
+      <div class="alert alert-success">تم تسجيل الدخول بنجاح!</div>`;
       status.style.color = "green";
 
-      location.href = `${window.location.origin}/index.html`;
+      location.href = `/index.html`;
     } else {
       status.textContent = "فشل في تسجيل الدخول. تحقق من البيانات.";
       status.style.color = "red";
