@@ -199,7 +199,6 @@ function handleLogout() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("تحميل الصفحة: استدعاء getProduct");
   getProduct();
   updateCartCount();
   updateFavCount();

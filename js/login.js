@@ -21,15 +21,13 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
       const data = await response.json();
       const token = data.token;
 
-      // تخزين التوكن واسم المستخدم في localStorage
       localStorage.setItem("auth_token", token);
       localStorage.setItem("username", username);
 
       status.textContent = "تم تسجيل الدخول بنجاح!";
       status.style.color = "green";
 
-      // توجيه المستخدم إلى صفحة index.html
-      window.location.href = "index.html";
+      location.href = `index.html`;
     } else {
       status.textContent = "فشل في تسجيل الدخول. تحقق من البيانات.";
       status.style.color = "red";
