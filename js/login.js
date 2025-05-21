@@ -29,7 +29,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
       status.style.color = "green";
 
       // توجيه المستخدم إلى صفحة index.html
-      window.location.href = "../index.html";
+      window.location.href = "index.html";
     } else {
       status.textContent = "فشل في تسجيل الدخول. تحقق من البيانات.";
       status.style.color = "red";
