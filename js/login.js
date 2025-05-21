@@ -28,13 +28,16 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
       <div class="alert alert-success">تم تسجيل الدخول بنجاح!</div>`;
       status.style.color = "green";
 
-      location.href = `/index.html`;
+     const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+      window.location.href = `${basePath}index.html`;
     } else {
       status.textContent = "فشل في تسجيل الدخول. تحقق من البيانات.";
       status.style.color = "red";
     }
   } catch (error) {
-    status.textContent = "حدث خطأ أثناء الاتصال بالخادم.";
+    status.innerHTML = `
+    <div class="alert alert-danger">خطأ في الخادم</div>
+    `;
     status.style.color = "red";
     console.error("Login error:", error);
   }
