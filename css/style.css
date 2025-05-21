@@ -473,3 +473,15 @@ footer {
         font-size: 14px;
     }
 }
+#username-display{
+    font-size: 20px;
+    color: var(--bg-color);
+    font-weight: 700;
+}
+.logout-btn{
+    background-color: var(--bg-color);
+    width: 8%;
+    height: 4vh;
+    border-radius: 10px 10px 0 0;
+    font-size: 25px;
+}

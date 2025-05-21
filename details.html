@@ -92,6 +92,7 @@
             <span onclick="open_Menu()" class="open_menu"
               ><i class="fa-solid fa-bars"></i
             ></span>
+
             <ul class="nav_links">
               <li class="active"><a href="/index.html">Home</a></li>
               <li><a href="#">About</a></li>
@@ -102,13 +103,17 @@
           </nav>
 
           <div class="login_signup btns">
-            <a href="./login.html" class="btn"
+            <span id="username-display"></>
+            <a href="./login.html" class="btn loginBtn"
               >Login <i class="fa-solid fa-right-to-bracket"></i
             ></a>
-            <a href="#" class="btn"
+            <a href="#" class="btn loginBtn"
               >Sign UP <i class="fa-solid fa-user-plus"></i
-            ></a>
-          </div>
+            ></a>      
+
+          </div>         
+        <button id="logout-btn" class="logout-btn" style="display: none"> <i class="fa-solid fa-right-from-bracket" style="color: #e67e22;"></i></button>
+
         </div>
       </div>
     </header>
@@ -168,5 +173,6 @@
     <script src="./js/products.js"></script>
     <script src="./js/details.js"></script>
     <script src="./js/cart.js"></script>
+    <script src="./js/login.js"></script>
   </body>
 </html>
